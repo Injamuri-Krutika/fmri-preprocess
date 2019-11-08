@@ -33,24 +33,28 @@ class Make_FSL_Timings:
                         run = os.path.join(_dir, "func", name.split("_")[-2])
                         if not os.path.isdir(run):
                             os.mkdir(run)
-                        with open(name, "r") as run_file:
-                            count = 1
-                            rows = run_file.read().split("\n")
-                            rows = [row.split("\t") for row in rows]
-                            for row in rows:
-                                if count == 2 or count == 58:
-                                    file_name = os.path.join(
-                                        run, "rest"+".txt")
-                                    with open(file_name, "a") as timing_file:
-                                        timing_file.write(
-                                            row[0]+" "+row[1]+" 1\n")
-                                elif count > 2 and count < 58:
-                                    file_name = os.path.join(
-                                        run, self.image_details[row[5]]["num"]+".txt")
-                                    with open(file_name, "a") as timing_file:
-                                        timing_file.write(
-                                            row[0]+" "+row[1]+" 1\n")
-                                count += 1
+                            with open(name, "r") as run_file:
+                                count = 1
+                                rows = run_file.read().split("\n")
+                                rows = [row.split("\t") for row in rows]
+                                for row in rows:
+                                    if count == 2 or count == 58:
+                                        file_name = os.path.join(
+                                            run, "rest"+".txt")
+                                        with open(file_name, "a") as timing_file:
+                                            timing_file.write(
+                                                row[0]+" "+row[1]+" 1\n")
+                                    elif count > 2 and count < 58:
+                                        file_name = os.path.join(
+                                            run, self.image_details[row[5]]["num"]+".txt")
+                                        with open(file_name, "a") as timing_file:
+                                            timing_file.write(
+                                                row[0]+" "+row[1]+" 1\n")
+                                    count += 1
+                        else:
+                            print(
+                                "Skipped since Timing files are already generated:",
+                                os.path.join(subj, _dir.split("/")[-1], name.split("_")[-2]))
 
 
 Make_FSL_Timings().run()
