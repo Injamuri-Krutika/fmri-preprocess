@@ -44,8 +44,6 @@ class Create_Design:
                                                           tot_real_EVs)
                         design_file += self.ftest(len(contrast_names))
                         design_file += self.final()
-                        print(run_timingfiles_path, "design_" +
-                              run_num+".fsf", contrast_names)
                         with open(os.path.join(_dir, "func", "design_"+run_num+".fsf"), "w") as design:
                             design.write(design_file)
 
