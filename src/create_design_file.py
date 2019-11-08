@@ -29,6 +29,7 @@ class Create_Design:
                         # timing_files = timing_files[46:]
                         tot_real_EVs = len(timing_files)*2
                         self.num_of_EVs = len(timing_files)
+                        design_file = ""
                         design_file += self.basic(subj, file_path,
                                                   len(timing_files), len(timing_files)-1)
 
@@ -124,7 +125,7 @@ class Create_Design:
             "# Add confound EVs text file\nset fmri(confoundevs) 0\n\n" +\
             "# Subject's structural image for analysis 1\nset highres_files(1) \"/home/krutika/Data/ds001246-download/" + \
             subj+"/ses-anatomy/anat/Subject" + \
-            subj.split("0")[-1]+"_T1w_brain\"\n\n"
+            subj.split("0")[-1]+"_T1wAligned_brain\"\n\n"
 
     # call 1
     def EV_details(self, EV_num, EV_name, timing_file_path):
