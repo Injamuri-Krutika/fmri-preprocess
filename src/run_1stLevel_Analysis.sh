@@ -16,7 +16,6 @@ for id in `seq -w 1 5` ; do
                 if [ ! -f designList.txt ]; then
                         ls -f *.fsf > designList.txt
                 fi
-                Loop over all subjects and format timing files into FSL format
                 for designFile in `cat designList.txt` ; do
                         echo "===> Starting feat for $designFile"
                         feat $designFile
