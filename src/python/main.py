@@ -8,7 +8,7 @@ def remove_run_folders():
 
 
 def main():
-    Make_FSL_Timings().run()
+    # Make_FSL_Timings().run()
     Create_Design().run()
 
 

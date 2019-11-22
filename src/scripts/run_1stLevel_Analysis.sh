@@ -2,7 +2,7 @@
 
 # Generate the subject list to make modifying this script
 # to run just a subset of subjects easier.
-
+cd ..
 for id in `seq -w 1 5` ; do
         subj="sub-0$id"
         echo "===> Starting processing of $subj"
@@ -18,7 +18,13 @@ for id in `seq -w 1 5` ; do
                 fi
                 for designFile in `cat designList.txt` ; do
                         echo "===> Starting feat for $designFile"
-                        feat $designFile
+                        run_num=$(echo $designFile | cut -d '-' -f 2)
+                        run_num=$(echo $run_num | cut -d '.' -f 1)
+                        echo $run_num
+                        feat_dir=$subj"_"$session_dir"_task-perception_run-"$run_num"_bold.feat"
+                        if [ ! -d $feat_dir ]; then
+                                feat $designFile
+                        fi
                 done
                 cd ../../
         done

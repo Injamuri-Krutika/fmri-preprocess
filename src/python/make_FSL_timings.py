@@ -7,7 +7,7 @@ import shutil
 class Make_FSL_Timings:
     def __init__(self):
         self.image_details = {}
-        with open("../data/stimulus_ImageNetTraining.tsv", "r") as imges_details_file:
+        with open("/home/krutika/Data/ds001246-download/stimulus_ImageNetTraining.tsv", "r") as imges_details_file:
             content = imges_details_file.read()
             rows = content.split("\n")
             rows = [row.split("\t") for row in rows]

@@ -1,5 +1,5 @@
 
-cd ../data/sourcedata
+cd ../../data/sourcedata
 
 for id in `seq -w 1 5` ; do
     echo $PWD
